@@ -7,10 +7,12 @@ using TMPro;
 public class DialogueManager : MonoBehaviour
 {
     public TextMeshProUGUI dialogue;
-    public Image speaker1, speaker2;
+    public Image speaker;
 
     private int currentIndex;
     private Conversation currentConvo;
+
+    private int counter = 0;
 
     public void StartConversation(Conversation conv){
       currentIndex = 0;
@@ -18,13 +20,25 @@ public class DialogueManager : MonoBehaviour
       ReadNext();
     }
 
+    public void ButtonReadNext()
+    {
+      counter++;
+      if(counter == 1)
+      {
+        ReadNext();
+      } else
+      {
+        StopAllCoroutines();
+        ShowNextLine();
+      }
+    }
+
     public void ReadNext(){
-      speaker1.sprite = currentConvo.GetLineByIndex(currentIndex).speaker1.GetSprite();
-      speaker2.sprite = currentConvo.GetLineByIndex(currentIndex).speaker2.GetSprite();
+      counter++;
+      speaker.sprite = currentConvo.GetLineByIndex(currentIndex).speaker.GetSprite();
 
       StopAllCoroutines();
       StartCoroutine(TypeText(currentConvo.GetLineByIndex(currentIndex).dialogue));
-      currentIndex++;
     }
 
     private IEnumerator TypeText(string text){
@@ -34,6 +48,22 @@ public class DialogueManager : MonoBehaviour
         dialogue.text += letter;
         yield return new WaitForSecondsRealtime(0.025f);
       }
+      currentIndex++;
+      counter = 0;
+    }
+
+    public void ShowNextLine()
+    {
+      if(currentIndex > currentConvo.GetLength())
+      {
+        counter = 0;
+        return;
+      }
+
+      dialogue.text = currentConvo.GetLineByIndex(currentIndex).dialogue;
+      speaker.sprite = currentConvo.GetLineByIndex(currentIndex).speaker.GetSprite();
+      currentIndex++;
+      counter = 0;
     }
 
 }

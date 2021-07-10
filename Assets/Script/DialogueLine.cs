@@ -3,7 +3,7 @@ using UnityEngine;
 [System.Serializable]
 public class DialogueLine
 {
-  public Speaker speaker1, speaker2;
+  public Speaker speaker;
   [TextArea]
   public string dialogue;
 }
