@@ -12,10 +12,10 @@ public class DialogueManager : MonoBehaviour
     public GoToScene goToScene;
     public TextMeshProUGUI dialogue;
     public Image speaker;
+    public Animator anim;
 
     private int currentIndex;
     private Conversation currentConvo;
-    private Animator anim;
 
     private int counter = 0;
 
@@ -24,11 +24,6 @@ public class DialogueManager : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
-    //
-    // public void Buttonfecharcanvas()
-    // {
-    //     Destroy(FecharCanvas);
-    // }
 
     public void StartConversation(Conversation conv)
     {
@@ -36,8 +31,6 @@ public class DialogueManager : MonoBehaviour
         currentIndex = 0;
         currentConvo = conv;
         ReadNext();
-        Debug.Log("Teste");
-
     }
 
 
@@ -56,6 +49,7 @@ public class DialogueManager : MonoBehaviour
 
     public void ButtonReadNext()
     {
+        Debug.Log("aaaaaaaaa");
         counter++;
         if (counter == 1)
         {
@@ -70,8 +64,16 @@ public class DialogueManager : MonoBehaviour
 
     public void ReadNext()
     {
+      if (currentIndex > currentConvo.GetLength())
+      {
+        Debug.Log("entou");
+        anim.SetBool("isOpen", false);
+        counter = 0;
+        return;
+      }
         counter++;
         speaker.sprite = currentConvo.GetLineByIndex(currentIndex).speaker.GetSprite();
+
 
         StopAllCoroutines();
         StartCoroutine(TypeText(currentConvo.GetLineByIndex(currentIndex).dialogue));
