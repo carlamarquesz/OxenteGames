@@ -4,17 +4,15 @@ using UnityEngine;
 
 public class StartScene : MonoBehaviour
 {
-    public DialogueManager DialogueManager; 
+    public DialogueManager dialogueManager;
     public Conversation currentConvo;
     // Start is called before the first frame update
     void Start()
     {
-        DialogueManager.StartConversation(currentConvo);
+        if(PlayerPrefs.GetInt("falainic")==0){
+            dialogueManager.StartConversation(currentConvo);
+            PlayerPrefs.SetInt("falainic",1);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
