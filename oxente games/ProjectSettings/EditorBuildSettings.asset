@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/cenas/cenasalao.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/cenas/cenaquarto.unity
+    guid: c5fac00c1d475a0448798610275901a6
+  - enabled: 1
+    path: Assets/Scenes/cenas/cenasaladejantar.unity
+    guid: 1a7676d843adbfd4ca732990a47fa020
+  - enabled: 1
+    path: Assets/Scenes/cenas/cenacozinha.unity
+    guid: 2740f84dc1e3e8d4b957edea5fbe47a9
+  - enabled: 1
+    path: Assets/Scenes/cenas/cenabiblioteca.unity
+    guid: b3f7629579379be4dbaee406c4aa9b81
+  - enabled: 1
+    path: Assets/Scenes/cenas/cenasaguao2.unity
+    guid: 3dc84cbbfa780e04a8b5a9aab7b1d3e2
+  - enabled: 1
+    path: Assets/ana/Assetsana/Scenes/cutscene1.unity
+    guid: 63262812608a6d74f9f8f4a2e7f41b09
+  - enabled: 1
+    path: Assets/ana/Assetsana/Scenes/cutscene2.unity
+    guid: 75fffcfc89dff604a98de197216e59eb
+  - enabled: 1
+    path: Assets/ana/Assetsana/Scenes/cutscene3.unity
+    guid: f1fa1d95ebe3f0a449e8453472072ef3
+  m_configObjects: {}
